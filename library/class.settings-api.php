@@ -122,7 +122,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
                     if ( empty($option['name']) ) {
                         continue;
                     }
-
+                    
                     $option['type']  = isset( $option['type'] ) ? $option['type'] : 'text';
                     $option['label'] = isset( $option['label'] ) ? $option['label'] : '';
 
@@ -136,7 +136,8 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
                         'options' => isset( $option['options'] ) ? $option['options'] : '',
                         'std' => isset( $option['default'] ) ? $option['default'] : '',
                         'sanitize_callback' => isset( $option['sanitize_callback'] ) ? $option['sanitize_callback'] : '',
-                        'min' => $option['min'],
+                        'min' => isset($option['min']) ? $option['min'] : '',
+                        'max' => isset($option['max']) ? $option['max'] : ''
                     );
 
                     if ( in_array($option['type'], array('metabox', 'html') ) ) {
@@ -370,6 +371,7 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
          * @param array   $args settings field args
          */
         public function callback_number( $args ) {
+            var_dump($args);
             $value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
             $size  = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
             $min  = is_int($args['min']) && !is_null($args['min']) ? $args['min'] : -100;

@@ -13,31 +13,60 @@ require_once (DIR_PLUGIN.'/library/class.settings-api.php');
 /**
  * Registers settings section and fields
  */
+function generateRandomString($length) {
+    $characters_maj = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $characters_min = "abcdefghijklmnopqrstuvwxyz";
+    $characters_min_consonne = 'bcdfghjklmnpqrstvwxz';
+    $characters_min_voyelle = "aeiouy";
+    $randomString = $characters_maj[rand(0, strlen($characters_maj) -1)];
+    for ($i = 0; $i < $length; $i++) {
+        if ($i = 1){
+            for ($j = 0; $j < strlen($characters_maj) -1; $j++){
+                if ($randomString[$i - 1] == $characters_maj[$j]){
+                    # code...
+                }
+            }
+         && $randomString[$i - 1] == $characters_maj[])
+        }
+        {
+            $randomString .= "test";
+            /*if ($randomString[$i - 1] == $characters_maj[9])
+            {
+
+            }*/
+        }
+        //$randomString .= $characters_min[rand(0, strlen($characters_min) - 1)];
+    }
+    return $randomString[0];
+}
 if ( !function_exists( 'wedevs_admin_init' ) ):
     function wedevs_admin_init() {
+
         $sections = array(
             array(
                 'id' => 'wedevs_users',
                 'title' => __( 'Generate users', 'wedevs' ),
-                'desc' => __( 'Generate one or more user', 'wedevs' ),
+                'desc' => __( 'Generate one or more users', 'wedevs' ),
                 'tab_label' => __( 'Users', 'wedevs' ),
             ),
             array(
-                'id' => 'wedevs_article',
+                'id' => 'wedevs_articles',
                 'title' => __( 'Generate articles', 'wedevs' ),
                 'desc' => __( 'Generate one or more articles', 'wedevs' ),
                 'tab_label' => __( 'Articles', 'wedevs' ),
             )
         );
+        $name = generateRandomString(5);
         $fields = array(
             'wedevs_users' => array(
                 array(
                     'name' => 'number',
-                    'label' => __( 'Number', 'wedevs' ),
+                    'label' => $name,//__( 'Number', 'wedevs' ),
                     'desc' => __( 'How many users you want ?', 'wedevs' ),
                     'desc_type' => 'block',
                     'type' => 'number',
-                    'min' => "0",
+                    'min' => 0,
+                    'max' => 50,
                     'default' => '0'
                 ),
                 array(
@@ -54,7 +83,7 @@ if ( !function_exists( 'wedevs_admin_init' ) ):
                     )
                 )
             ),
-            'wedevs_advanced' => array(
+            'wedevs_articles' => array(
                 array(
                     'name' => 'text',
                     'label' => __( 'Text Input', 'wedevs' ),
@@ -122,76 +151,8 @@ if ( !function_exists( 'wedevs_admin_init' ) ):
                     'type' => 'file',
                     'default' => ''
                 )
-            ),
-            'wedevs_others' => array(
-                array(
-                    'name' => 'text',
-                    'label' => __( 'Text Input', 'wedevs' ),
-                    'desc' => __( 'Text input description', 'wedevs' ),
-                    'type' => 'text',
-                    'default' => 'Title'
-                ),
-                array(
-                    'name' => 'textarea',
-                    'label' => __( 'Textarea Input', 'wedevs' ),
-                    'desc' => __( 'Textarea description', 'wedevs' ),
-                    'type' => 'textarea'
-                ),
-                array(
-                    'name' => 'checkbox',
-                    'label' => __( 'Checkbox', 'wedevs' ),
-                    'desc' => __( 'Checkbox Label', 'wedevs' ),
-                    'type' => 'checkbox'
-                ),
-                array(
-                    'name' => 'radio',
-                    'label' => __( 'Radio Button', 'wedevs' ),
-                    'desc' => __( 'A radio button', 'wedevs' ),
-                    'type' => 'radio',
-                    'options' => array(
-                        'yes' => 'Yes',
-                        'no' => 'No'
-                    )
-                ),
-                array(
-                    'name' => 'multicheck',
-                    'label' => __( 'Multile checkbox', 'wedevs' ),
-                    'desc' => __( 'Multi checkbox description', 'wedevs' ),
-                    'type' => 'multicheck',
-                    'options' => array(
-                        'one' => 'One',
-                        'two' => 'Two',
-                        'three' => 'Three',
-                        'four' => 'Four'
-                    )
-                ),
-                array(
-                    'name' => 'selectbox',
-                    'label' => __( 'A Dropdown', 'wedevs' ),
-                    'desc' => __( 'Dropdown description', 'wedevs' ),
-                    'type' => 'select',
-                    'options' => array(
-                        'yes' => 'Yes',
-                        'no' => 'No'
-                    )
-                ),
-                array(
-                    'name' => 'password',
-                    'label' => __( 'Password', 'wedevs' ),
-                    'desc' => __( 'Password description', 'wedevs' ),
-                    'type' => 'password',
-                    'default' => ''
-                ),
-                array(
-                    'name' => 'file',
-                    'label' => __( 'File', 'wedevs' ),
-                    'desc' => __( 'File description', 'wedevs' ),
-                    'type' => 'file',
-                    'default' => ''
-                )
             )
         );
-        
         global $my_settings_api;
         $my_settings_api = new WeDevs_Settings_API;
         //set sections and fields
