@@ -10,38 +10,15 @@
  * @link https://github.com/herewithme/wordpress-settings-api-class
  */
 require_once (DIR_PLUGIN.'/library/class.settings-api.php');
+require_once (DIR_PLUGIN.'/inc/admin/generator.php');
 /**
  * Registers settings section and fields
  */
-function generateRandomString($length) {
-    $characters_maj = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $characters_min = "abcdefghijklmnopqrstuvwxyz";
-    $characters_min_consonne = 'bcdfghjklmnpqrstvwxz';
-    $characters_min_voyelle = "aeiouy";
-    $randomString = $characters_maj[rand(0, strlen($characters_maj) -1)];
-    for ($i = 0; $i < $length; $i++) {
-        if ($i = 1){
-            for ($j = 0; $j < strlen($characters_maj) -1; $j++){
-                if ($randomString[$i - 1] == $characters_maj[$j]){
-                    # code...
-                }
-            }
-         && $randomString[$i - 1] == $characters_maj[])
-        }
-        {
-            $randomString .= "test";
-            /*if ($randomString[$i - 1] == $characters_maj[9])
-            {
 
-            }*/
-        }
-        //$randomString .= $characters_min[rand(0, strlen($characters_min) - 1)];
-    }
-    return $randomString[0];
-}
 if ( !function_exists( 'wedevs_admin_init' ) ):
     function wedevs_admin_init() {
-
+        $name = generateRandomString(5);
+        $test = generate_Name();
         $sections = array(
             array(
                 'id' => 'wedevs_users',
