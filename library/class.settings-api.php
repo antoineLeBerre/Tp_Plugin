@@ -371,11 +371,10 @@ if ( !class_exists( 'WeDevs_Settings_API' ) ):
          * @param array   $args settings field args
          */
         public function callback_number( $args ) {
-            var_dump($args);
             $value = esc_attr( $this->get_option( $args['id'], $args['section'], $args['std'] ) );
             $size  = isset( $args['size'] ) && !is_null( $args['size'] ) ? $args['size'] : 'regular';
-            $min  = is_int($args['min']) && !is_null($args['min']) ? $args['min'] : -100;
-            $max  = is_int($args['max']) && !is_null($args['max']) ? $args['max'] : 100;
+            $min  = is_int($args['min']) && !is_null($args['min']) ? $args['min'] : '';
+            $max  = is_int($args['max']) && !is_null($args['max']) ? $args['max'] : '';
             
             $html  = sprintf( '<input type="number" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]" value="%4$s" min="%5$s" max="%6$s" />',$size, $args['section'], $args['id'], $value, $min, $max) . PHP_EOL;
             $this->append_description($html, $args);

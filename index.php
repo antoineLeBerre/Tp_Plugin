@@ -14,7 +14,8 @@ Domain Path: /languages
 define("DIR_PLUGIN", plugin_dir_path(__FILE__));
 
 require_once (DIR_PLUGIN.'library/class.settings-api.php' );
-require_once (DIR_PLUGIN).('/inc/admin/admin.php');
+require_once (DIR_PLUGIN).('/inc/admin/admins.php');
+require_once (DIR_PLUGIN).('/inc/admin/contenue.php');
 
 function lang_init() {
 	load_plugin_textdomain( 'wedevs', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );

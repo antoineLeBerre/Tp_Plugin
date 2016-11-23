@@ -10,10 +10,19 @@ function generateRandomString($length) {
     return $randomString;
 }
 
-function generate_Name()
+function generate_Name($alea)
 {
-	$ouvrir = fopen(DIR_PLUGIN.'nom.txt', 'r');
-	$lire = fgets($ouvrir);
-	fclose($ouvrir);
-	var_dump($lire);
+	$i = 0;
+	$open = fopen(DIR_PLUGIN.'nom.txt', 'r');
+	if ($open)
+	{
+		while ($i < $alea)
+		{
+			$line = fgets($open);
+			$i++;
+		}
+		fclose($open);
+		return $line;
+	}
+	return -1;
 }

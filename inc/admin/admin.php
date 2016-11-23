@@ -17,8 +17,7 @@ require_once (DIR_PLUGIN.'/inc/admin/generator.php');
 
 if ( !function_exists( 'wedevs_admin_init' ) ):
     function wedevs_admin_init() {
-        $name = generateRandomString(5);
-        $test = generate_Name();
+        $name = generate_Name(rand(0,100));
         $sections = array(
             array(
                 'id' => 'wedevs_users',
@@ -33,7 +32,6 @@ if ( !function_exists( 'wedevs_admin_init' ) ):
                 'tab_label' => __( 'Articles', 'wedevs' ),
             )
         );
-        $name = generateRandomString(5);
         $fields = array(
             'wedevs_users' => array(
                 array(
@@ -145,7 +143,8 @@ if ( !function_exists( 'wedevs_admin_menu' ) ):
      * Register the plugin page
      */
     function wedevs_admin_menu() {
-        add_options_page( 'Settings API', 'Settings API', 'manage_options', 'settings_api_test', 'wedevs_plugin_page' );
+        add_menu_page('Generate', 'Generate 2', 'activate_plugins', 'settings_api_test', 'wedevs_plugin_page');
+        add_submenu_page('settings_api_test', "User", "User", "manage_options", 'wedevs_plugin_page');
     }
 endif;
 add_action( 'admin_menu', 'wedevs_admin_menu' );
