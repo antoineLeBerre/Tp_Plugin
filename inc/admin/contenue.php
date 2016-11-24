@@ -11,6 +11,6 @@ function _custom_plugin_init() {
 		 "show_ui" => true
 		];
 
-	 register_post_type( 'message', $args);*/
+	 register_post_type( 'message', $args);
 }
 add_action( 'init', '_custom_plugin_init' );

@@ -11,14 +11,14 @@ add_action( 'admin_menu', 'plugin_admin_menu');
 function alb_form_user()
 { 
 	echo "<h2>Generate user</h2>";
-	echo "<form id='form_user' methode='POST'";
+	echo "<form id='form_user' methode='POST' action='' >";
 	echo "<table>";
 	echo "<tr>";
 	echo "<td>";
 	echo "<label for=number_user>Quantiter : </label>";
 	echo "</td>";
 	echo "<td>";
-	echo "<input type='number' name=number_user min='0' max=''/>";
+	echo "<input type='number' name='number_user' min='0' max=''/>";
 	echo "</td>";
 	echo "</tr>";
 	echo "<td>";
@@ -34,5 +34,8 @@ function alb_form_user()
 	echo "</td>";
 	echo "</tr>";
 	echo "</table>";
+	echo "<input type='submit' value='Submit'/>";
 	echo "</form>";
 }
+
+require_once (DIR_PLUGIN.'/inc/admin/alb_insert.php');
