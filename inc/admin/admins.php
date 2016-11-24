@@ -9,7 +9,7 @@ add_action( 'admin_menu', 'plugin_admin_menu');
 
 
 function alb_form_user()
-{ 
+{ a
 	echo "<h2>Generate user</h2>";
 	echo "<form id='form_user' methode='POST' action='' >";
 	echo "<table>";
