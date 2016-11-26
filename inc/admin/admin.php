@@ -9,17 +9,15 @@ require_once (DIR_PLUGIN.'/inc/admin/alb_insert.php');
     }
 add_action( 'admin_menu', 'plugin_admin_menu');
 */
-var_dump($_POST["submit"]);
+
 add_action( 'admin_action_wpse10500', 'wpse10500_admin_action' );
 function wpse10500_admin_action()
 {
     // Do your stuff here
-    var_dump($_POST);
-    die();
+    alb_insert_user($_REQUEST);
     wp_redirect( $_SERVER['HTTP_REFERER'] );
     exit();
 }
-var_dump($_POST["submit"]);
 
 add_action( 'admin_menu', 'wpse10500_admin_menu' );
 function wpse10500_admin_menu()
@@ -36,7 +34,6 @@ function wpse10500_admin_menu()
     </form>
 <?php
 } **/
-var_dump($_POST["submit"]);
 
 function wpse10500_form_user()
 { ?>
@@ -70,6 +67,7 @@ function wpse10500_form_user()
     <input type='submit' name="submit" value='Submit'/>
     </form>
 <?php } 
-var_dump($_POST["submit"]);
 
-add_action( 'wp', 'alb_insert' );
+var_dump($_REQUEST);
+
+
