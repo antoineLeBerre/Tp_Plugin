@@ -1,0 +1,83 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Generated article and user\n"
+"POT-Creation-Date: 2016-11-30 12:49+0100\n"
+"PO-Revision-Date: 2016-12-01 11:34+0100\n"
+"Last-Translator: \n"
+"Language-Team: Antoine Le Berre\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: view/alb_form_article.php\n"
+"X-Poedit-SearchPath-1: view/alb_form_user.php\n"
+"X-Poedit-SearchPath-2: inc/admin/admin.php\n"
+
+#: inc/admin/admin.php:22
+msgid "ALB_Generate"
+msgstr ""
+
+#: inc/admin/admin.php:23
+msgid "User"
+msgstr "Utilisateur"
+
+#: inc/admin/admin.php:24
+msgid "Article"
+msgstr "Article"
+
+#: view/alb_form_article.php:1
+msgid "Generate Article"
+msgstr "Generer Article"
+
+#: view/alb_form_article.php:8 view/alb_form_user.php:8
+msgid "Quantity"
+msgstr "Quantité"
+
+#: view/alb_form_article.php:16
+msgid "Comment"
+msgstr "Commentaire"
+
+#: view/alb_form_article.php:20
+msgid "Open"
+msgstr "Ouvrir"
+
+#: view/alb_form_article.php:21
+msgid "Closed"
+msgstr "Fermé"
+
+#: view/alb_form_article.php:27 view/alb_form_user.php:22
+msgid "Author"
+msgstr "Auteur"
+
+#: view/alb_form_article.php:38 view/alb_form_user.php:29
+msgid "Generate"
+msgstr "Generer"
+
+#: view/alb_form_user.php:1
+msgid "Generate users"
+msgstr "Geerer Utilisateur"
+
+#: view/alb_form_user.php:16
+msgid "Role"
+msgstr "Rôle"
+
+#: view/alb_form_user.php:20
+msgid "Administrator"
+msgstr "Administrateur"
+
+#: view/alb_form_user.php:21
+msgid "Editor"
+msgstr "Editeur"
+
+#: view/alb_form_user.php:23
+msgid "Subscribor"
+msgstr "Abonné"
+
+#: view/alb_form_user.php:24
+msgid "Contribuor"
+msgstr "Contribueur"

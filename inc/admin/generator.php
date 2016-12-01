@@ -16,7 +16,7 @@ function generator($code, $option = array())
     $i = 0;
 
     if ($code == 0) {
-    	$random_string = $characters_maj[rand(0, strlen($characters_min) - 1)];
+    	$random_string = $characters_maj[rand(0, strlen($characters_maj) - 1)];
     	if (isset($option["word"])) {
     		while ($i < $option["word"]) {
     			$length = rand(2, 7);
@@ -46,6 +46,7 @@ function generator($code, $option = array())
     	return $random_name;
     }
     elseif ($code == 3) {
+        $random_email = $random_string;
     	$length = rand(4, 6);
     	$random_string = do_generate(0, $length);
     	$random_extension = $extension[rand(0, sizeof($extension) - 1)];
